@@ -1,18 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import {  Route, Routes, BrowserRouter, HashRouter } from 'react-router-dom';
-import Home from './Home';
-import Contact from './Contact';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
+import Homepage from './components/Homepage';
+import SecondPage from './components/SecondPage';
 
 function App() {
   return (
     <div className="App">
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </HashRouter>
+     <Router>
+       <Switch>
+         <Route path='/problem-showcase' exact component={Homepage}/>
+         <Route path='/problem-showcase/secondpage' exact component={SecondPage}/>
+       </Switch>
+     </Router>
     </div>
   );
 }
